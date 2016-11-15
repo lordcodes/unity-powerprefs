@@ -36,6 +36,13 @@ namespace PowerPrefs.UnitTests {
       Assert.That(actual, Is.False);
     }
 
+    [Test]
+    public void GivenKeyMissing_WhenGet_ThenDefault() {
+      bool actual = accessor.Get(TestKey, true);
+
+      Assert.That(actual, Is.True);
+    }
+
 		[Test]
 		public void GivenNoDefaultProvidedAndKeyMissing_WhenGet_ThenFalse() {
       bool actual = accessor.Get(TestKey);
