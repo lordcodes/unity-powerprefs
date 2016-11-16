@@ -1,0 +1,10 @@
+language: objective-c
+
+install:
+- ./scripts/install-unity.sh
+
+script:
+- ./scripts/build.sh
+
+after_success:
+- ./scripts/run-tests.sh
