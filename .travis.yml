@@ -5,6 +5,7 @@ install:
 
 script:
 - ./scripts/build.sh
+- ./scripts/run-tests.sh
 
 after_success:
-- ./scripts/run-tests.sh
+- ./scripts/export-package.sh
