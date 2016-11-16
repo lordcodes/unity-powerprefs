@@ -1,5 +1,8 @@
 language: objective-c
 
+before_install:
+- chmod a+x ./scripts/*.sh
+
 install:
 - ./scripts/install-unity.sh
 
