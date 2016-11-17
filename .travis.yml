@@ -1,4 +1,7 @@
 language: objective-c
+osx_image: xcode8.2
+rvm:
+- 2.2
 
 before_install:
 - chmod a+x ./scripts/*.sh
