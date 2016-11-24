@@ -3,15 +3,15 @@ namespace PowerPrefs.UnitTests {
   using UnityEngine;
   using NUnit.Framework;
 
-  public class IntPrefAccessorTest {
+  public class LongPrefAccessorTest {
 
     private static readonly string TestKey = "someTestKey";
 
-    private IntPrefAccessor accessor;
+    private LongPrefAccessor accessor;
 
     [SetUp]
     public void SetUp() {
-      accessor = new IntPrefAccessor();
+      accessor = new LongPrefAccessor();
     }
 
     [TearDown]
@@ -21,47 +21,49 @@ namespace PowerPrefs.UnitTests {
 
     [Test]
     public void GivenValueStored_WhenGet_ThenValue() {
-      int expected = 10;
-      PlayerPrefs.SetInt(TestKey, expected);
+      long expected = 21;
+      PlayerPrefs.SetString(TestKey, expected.ToString());
 
-      int actual = accessor.Get(TestKey, -1);
+      long actual = accessor.Get(TestKey, -1);
 
       Assert.That(actual, Is.EqualTo(expected));
     }
 
     [Test]
     public void GivenKeyMissing_WhenGet_ThenDefault() {
-      int expected = -1;
+      long expected = 31;
 
-      int actual = accessor.Get(TestKey, expected);
+      long actual = accessor.Get(TestKey, expected);
 
       Assert.That(actual, Is.EqualTo(expected));
     }
 
     [Test]
-    public void GivenNoDefaultProvidedAndKeyMissing_WhenGet_ThenZero() {
-      int actual = accessor.Get(TestKey);
+    public void GivenNoDefaultProvidedAndKeyMissing_WhenGet_ThenCharTypeDefault() {
+      long actual = accessor.Get(TestKey);
 
       Assert.That(actual, Is.EqualTo(0));
     }
 
     [Test]
     public void WhenSet_ThenValueStored() {
-      int expected = 10;
+      long expected = 12;
 
       accessor.Set(TestKey, expected);
 
-      Assert.That(PlayerPrefs.GetInt(TestKey, 100), Is.EqualTo(expected));
+      long actual = long.Parse(PlayerPrefs.GetString(TestKey, "-1"));
+      Assert.That(actual, Is.EqualTo(expected));
     }
 
     [Test]
     public void GivenValueAlreadyStored_WhenSet_ThenValueOverwritten() {
-      int expected = 20;
-      PlayerPrefs.SetInt(TestKey, -1);
+      long expected = 23;
+      PlayerPrefs.SetString(TestKey, "121");
 
       accessor.Set(TestKey, expected);
 
-      Assert.That(PlayerPrefs.GetInt(TestKey, 100), Is.EqualTo(expected));
+      long actual = long.Parse(PlayerPrefs.GetString(TestKey, "-1"));
+      Assert.That(actual, Is.EqualTo(expected));
     }
 
   }

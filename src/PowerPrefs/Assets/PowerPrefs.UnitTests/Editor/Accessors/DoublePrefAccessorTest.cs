@@ -3,15 +3,15 @@ namespace PowerPrefs.UnitTests {
   using UnityEngine;
   using NUnit.Framework;
 
-  public class FloatPrefAccessorTest {
+  public class DoublePrefAccessorTest {
 
     private static readonly string TestKey = "someTestKey";
 
-    private FloatPrefAccessor accessor;
+    private DoublePrefAccessor accessor;
 
     [SetUp]
     public void SetUp() {
-      accessor = new FloatPrefAccessor();
+      accessor = new DoublePrefAccessor();
     }
 
     [TearDown]
@@ -21,48 +21,49 @@ namespace PowerPrefs.UnitTests {
 
     [Test]
     public void GivenValueStored_WhenGet_ThenValue() {
-      float expected = 10f;
-      PlayerPrefs.SetFloat(TestKey, expected);
+      double expected = 10;
+      PlayerPrefs.SetString(TestKey, expected.ToString());
 
-      float actual = accessor.Get(TestKey, -1f);
+      double actual = accessor.Get(TestKey, -1);
 
       Assert.That(actual, Is.EqualTo(expected));
     }
 
     [Test]
     public void GivenKeyMissing_WhenGet_ThenDefault() {
-      float expected = -1f;
+      double expected = -1;
 
-      float actual = accessor.Get(TestKey, expected);
+      double actual = accessor.Get(TestKey, expected);
 
       Assert.That(actual, Is.EqualTo(expected));
     }
 
     [Test]
     public void GivenNoDefaultProvidedAndKeyMissing_WhenGet_ThenZero() {
-      float actual = accessor.Get(TestKey);
+      double actual = accessor.Get(TestKey);
 
-      Assert.That(actual, Is.EqualTo(0f));
+      Assert.That(actual, Is.EqualTo(0));
     }
 
     [Test]
     public void WhenSet_ThenValueStored() {
-      float expected = 10f;
+      double expected = 10;
 
       accessor.Set(TestKey, expected);
 
-      Assert.That(PlayerPrefs.GetFloat(TestKey, 100f), Is.EqualTo(expected));
+      double actual = double.Parse(PlayerPrefs.GetString(TestKey, "100"));
+      Assert.That(actual, Is.EqualTo(expected));
     }
 
     [Test]
     public void GivenValueAlreadyStored_WhenSet_ThenValueOverwritten() {
-      float expected = 20f;
-      PlayerPrefs.SetFloat(TestKey, -1f);
+      double expected = 20;
+      PlayerPrefs.SetString(TestKey, "-1");
 
       accessor.Set(TestKey, expected);
 
-      Assert.That(PlayerPrefs.GetFloat(TestKey, 100f), Is.EqualTo(expected));
+      double actual = double.Parse(PlayerPrefs.GetString(TestKey,"100"));
+      Assert.That(actual, Is.EqualTo(expected));
     }
-
   }
 }

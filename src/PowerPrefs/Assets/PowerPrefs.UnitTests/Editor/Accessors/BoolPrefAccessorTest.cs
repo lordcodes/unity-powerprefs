@@ -1,8 +1,9 @@
-using UnityEngine;
-using NUnit.Framework;
-
 namespace PowerPrefs.UnitTests {
-	public class BoolPrefAccessorTest {
+
+  using UnityEngine;
+  using NUnit.Framework;
+
+  public class BoolPrefAccessorTest {
 
     private static readonly string TestKey = "someTestKey";
 
@@ -18,8 +19,8 @@ namespace PowerPrefs.UnitTests {
       PlayerPrefs.DeleteAll();
     }
 
-		[Test]
-		public void GivenTrueValueStored_WhenGet_ThenTrue() {
+    [Test]
+    public void GivenTrueValueStored_WhenGet_ThenTrue() {
       PlayerPrefs.SetInt(TestKey, 1);
 
       bool actual = accessor.Get(TestKey, false);
@@ -27,8 +28,8 @@ namespace PowerPrefs.UnitTests {
       Assert.That(actual, Is.True);
     }
 
-		[Test]
-		public void GivenFalseValueStored_WhenGet_ThenFalse() {
+    [Test]
+    public void GivenFalseValueStored_WhenGet_ThenFalse() {
       PlayerPrefs.SetInt(TestKey, 0);
 
       bool actual = accessor.Get(TestKey, true);
@@ -43,8 +44,8 @@ namespace PowerPrefs.UnitTests {
       Assert.That(actual, Is.True);
     }
 
-		[Test]
-		public void GivenNoDefaultProvidedAndKeyMissing_WhenGet_ThenFalse() {
+    [Test]
+    public void GivenNoDefaultProvidedAndKeyMissing_WhenGet_ThenFalse() {
       bool actual = accessor.Get(TestKey);
 
       Assert.That(actual, Is.False);
@@ -63,6 +64,5 @@ namespace PowerPrefs.UnitTests {
 
       Assert.That(PlayerPrefs.GetInt(TestKey, 100), Is.EqualTo(0));
     }
-
   }
 }

@@ -10,8 +10,7 @@ install:
 - ./scripts/install-unity.sh
 
 script:
-- ./scripts/build.sh
-- ./scripts/run-tests.sh
+- ./scripts/build.sh && ./scripts/run-tests.sh
 
 after_success:
 - ./scripts/export-package.sh
