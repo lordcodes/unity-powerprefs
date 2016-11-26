@@ -53,6 +53,5 @@ namespace PowerPrefs {
         PlayerPrefs.DeleteKey(oldKey);
       }
     }
-
   }
 }

@@ -32,6 +32,5 @@ namespace PowerPrefs {
       longAccessor.Set(prefKey, prefValue.Ticks);
       return this;
     }
-
   }
 }

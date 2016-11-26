@@ -33,6 +33,5 @@ namespace PowerPrefs {
       stringAccessor.Set(prefKey, prefValue.ToString());
       return this;
     }
-
   }
 }

@@ -29,6 +29,5 @@ namespace PowerPrefs {
       PlayerPrefs.SetString(prefKey, prefValue);
       return this;
     }
-
   }
 }

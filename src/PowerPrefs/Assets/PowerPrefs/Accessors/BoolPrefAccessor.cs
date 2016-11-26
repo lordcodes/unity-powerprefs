@@ -34,6 +34,5 @@ namespace PowerPrefs {
     private int boolToInt(bool prefValue) {
       return prefValue ? 1 : 0;
     }
-
   }
 }
