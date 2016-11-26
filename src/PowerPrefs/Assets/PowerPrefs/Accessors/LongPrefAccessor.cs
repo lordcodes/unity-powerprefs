@@ -1,4 +1,4 @@
-namespace PowerPrefs {
+namespace AndrewLord.UnityPowerPrefs {
 
   /// <summary>
   /// Get and set long values.

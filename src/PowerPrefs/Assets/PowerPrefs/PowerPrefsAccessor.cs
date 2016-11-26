@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace PowerPrefs {
+namespace AndrewLord.UnityPowerPrefs {
 
   /// <summary>
   /// Get, set and migrate values of type ValueT to and from PlayerPrefs.

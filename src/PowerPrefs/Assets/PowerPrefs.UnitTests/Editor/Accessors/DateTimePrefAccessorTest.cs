@@ -1,4 +1,4 @@
-namespace PowerPrefs.UnitTests {
+namespace AndrewLord.UnityPowerPrefs.UnitTests {
 
   using NUnit.Framework;
   using System;
