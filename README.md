@@ -8,7 +8,13 @@ Unity provides a set of static `PlayerPrefs` methods to store key-value pairs, s
 
 ## Download
 
-You can obtain PowerPrefs either by downloading the latest release from the 'Releases' page or by downloading the package contained within the 'release' folder in the repo. Once you have the `unitypackage` file, you can import it into your Unity project. If your project is already open then you can simply double-click the downloaded package. Alternatively, go to `Assets -> Import Package -> Custom Package` within the Unity editor.
+You can obtain PowerPrefs by:
+
+1. [Using this link](https://github.com/andrewlord1990/unity-powerprefs/releases/download/v0.1.0/PowerPrefs.0.1.0.unitypackage)
+2. Downloading the latest release from the 'Releases' page
+3. Downloading the package contained within the 'release' folder in the repo
+
+Once you have the `unitypackage` file, you can import it into your Unity project. If your project is already open then you can simply double-click the downloaded package. Alternatively, go to `Assets -> Import Package -> Custom Package` within the Unity editor.
 
 ## Main Features
 
