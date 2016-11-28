@@ -1,6 +1,6 @@
 # PowerPrefs
 
-[![Version](https://img.shields.io/badge/Version-v0.1.0-blue.svg)](https://github.com/andrewlord1990/unity-powerprefs/releases/tag/v0.1.0)
+[![Version](https://img.shields.io/badge/Version-v0.1.0-blue.svg)](https://github.com/andrewlord1990/unity-powerprefs/releases/latest)
 [![Build Status](https://travis-ci.org/andrewlord1990/unity-powerprefs.svg?branch=master)](https://travis-ci.org/andrewlord1990/unity-powerprefs)
 [![License](https://img.shields.io/badge/license-Apache%202.0-green.svg) ](https://github.com/andrewlord1990/unity-powerprefs/blob/master/LICENSE)
 
