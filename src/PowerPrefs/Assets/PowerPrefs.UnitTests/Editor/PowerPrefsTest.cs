@@ -1,177 +1,177 @@
 ﻿namespace AndrewLord.UnityPowerPrefs.UnitTests {
 
-	using UnityEngine;
-	using NUnit.Framework;
-	using System;
+  using UnityEngine;
+  using NUnit.Framework;
+  using System;
 
-	public class PowerPrefsTest {
+  public class PowerPrefsTest {
 
-		private static readonly string TestKey = "someTestKey";
+    private static readonly string TestKey = "someTestKey";
 
-		[TearDown]
-		public void TearDown() {
-			PlayerPrefs.DeleteAll();
-		}
+    [TearDown]
+    public void TearDown() {
+      PlayerPrefs.DeleteAll();
+    }
 
-		[Test]
-		public void GivenForBool_WhenGet_ThenBoolRetrieved() {
-			PlayerPrefs.SetInt(TestKey, 0);
+    [Test]
+    public void GivenForBool_WhenGet_ThenBoolRetrieved() {
+      PlayerPrefs.SetInt(TestKey, 0);
 
-			bool actual = PowerPrefs.ForBool().Get(TestKey, true);
+      bool actual = PowerPrefs.ForBool().Get(TestKey, true);
 
-			Assert.That(actual, Is.False);
-		}
+      Assert.That(actual, Is.False);
+    }
 
-		[Test]
-		public void GivenForBool_WhenSet_ThenBoolStored() {
-			PlayerPrefs.SetInt(TestKey, 0);
+    [Test]
+    public void GivenForBool_WhenSet_ThenBoolStored() {
+      PlayerPrefs.SetInt(TestKey, 0);
 
-			PowerPrefs.ForBool().Set(TestKey, true);
+      PowerPrefs.ForBool().Set(TestKey, true);
 
-			Assert.That(PlayerPrefs.GetInt(TestKey, 100), Is.EqualTo(1));
-		}
+      Assert.That(PlayerPrefs.GetInt(TestKey, 100), Is.EqualTo(1));
+    }
 
-		[Test]
-		public void GivenForFloat_WhenGet_ThenFloatRetrieved() {
-			float expected = 10f;
-			PlayerPrefs.SetFloat(TestKey, expected);
+    [Test]
+    public void GivenForFloat_WhenGet_ThenFloatRetrieved() {
+      float expected = 10f;
+      PlayerPrefs.SetFloat(TestKey, expected);
 
-			float actual = PowerPrefs.ForFloat().Get(TestKey, 100f);
+      float actual = PowerPrefs.ForFloat().Get(TestKey, 100f);
 
-			Assert.That(actual, Is.EqualTo(expected));
-		}
+      Assert.That(actual, Is.EqualTo(expected));
+    }
 
-		[Test]
-		public void GivenForFloat_WhenSet_ThenFloatStored() {
-		float expected = 100f;
-			PlayerPrefs.SetFloat(TestKey, 10f);
+    [Test]
+    public void GivenForFloat_WhenSet_ThenFloatStored() {
+      float expected = 100f;
+      PlayerPrefs.SetFloat(TestKey, 10f);
 
-			PowerPrefs.ForFloat().Set(TestKey, expected);
+      PowerPrefs.ForFloat().Set(TestKey, expected);
 
-			Assert.That(PlayerPrefs.GetFloat(TestKey, 10f), Is.EqualTo(expected));
-		}
+      Assert.That(PlayerPrefs.GetFloat(TestKey, 10f), Is.EqualTo(expected));
+    }
 
-		[Test]
-		public void GivenForInt_WhenGet_ThenIntRetrieved() {
-			int expected = 10;
-			PlayerPrefs.SetInt(TestKey, expected);
+    [Test]
+    public void GivenForInt_WhenGet_ThenIntRetrieved() {
+      int expected = 10;
+      PlayerPrefs.SetInt(TestKey, expected);
 
-			int actual = PowerPrefs.ForInt().Get(TestKey, 100);
+      int actual = PowerPrefs.ForInt().Get(TestKey, 100);
 
-			Assert.That(actual, Is.EqualTo(expected));
-		}
+      Assert.That(actual, Is.EqualTo(expected));
+    }
 
-		[Test]
-		public void GivenForInt_WhenSet_ThenIntStored() {
-			int expected = 100;
-			PlayerPrefs.SetInt(TestKey, 10);
+    [Test]
+    public void GivenForInt_WhenSet_ThenIntStored() {
+      int expected = 100;
+      PlayerPrefs.SetInt(TestKey, 10);
 
-			PowerPrefs.ForInt().Set(TestKey, expected);
+      PowerPrefs.ForInt().Set(TestKey, expected);
 
-			Assert.That(PlayerPrefs.GetInt(TestKey, 10), Is.EqualTo(expected));
-		}
+      Assert.That(PlayerPrefs.GetInt(TestKey, 10), Is.EqualTo(expected));
+    }
 
-		[Test]
-		public void GivenForString_WhenGet_ThenStringRetrieved() {
-			string expected = "someOldValue";
-			PlayerPrefs.SetString(TestKey, expected);
+    [Test]
+    public void GivenForString_WhenGet_ThenStringRetrieved() {
+      string expected = "someOldValue";
+      PlayerPrefs.SetString(TestKey, expected);
 
-			string actual = PowerPrefs.ForString().Get(TestKey, "");
+      string actual = PowerPrefs.ForString().Get(TestKey, "");
 
-			Assert.That(actual, Is.EqualTo(expected));
-		}
+      Assert.That(actual, Is.EqualTo(expected));
+    }
 
-		[Test]
-		public void GivenForString_WhenSet_ThenStringStored() {
-			string expected = "someNewValue";
-			PlayerPrefs.SetString(TestKey, "someOldValue");
+    [Test]
+    public void GivenForString_WhenSet_ThenStringStored() {
+      string expected = "someNewValue";
+      PlayerPrefs.SetString(TestKey, "someOldValue");
 
-			PowerPrefs.ForString().Set(TestKey, expected);
+      PowerPrefs.ForString().Set(TestKey, expected);
 
-			Assert.That(PlayerPrefs.GetString(TestKey, ""), Is.EqualTo(expected));
-		}
+      Assert.That(PlayerPrefs.GetString(TestKey, ""), Is.EqualTo(expected));
+    }
 
-		[Test]
-		public void GivenForChar_WhenGet_ThenCharRetrieved() {
-			char expected = 'd';
-			PlayerPrefs.SetString(TestKey, expected.ToString());
+    [Test]
+    public void GivenForChar_WhenGet_ThenCharRetrieved() {
+      char expected = 'd';
+      PlayerPrefs.SetString(TestKey, expected.ToString());
 
-			char actual = PowerPrefs.ForChar().Get(TestKey, 'x');
+      char actual = PowerPrefs.ForChar().Get(TestKey, 'x');
 
-			Assert.That(actual, Is.EqualTo(expected));
-		}
+      Assert.That(actual, Is.EqualTo(expected));
+    }
 
-		[Test]
-		public void GivenForChar_WhenSet_ThenCharStoredAsString() {
-			char expected = 'a';
-			PlayerPrefs.SetString(TestKey, "someOldValue");
+    [Test]
+    public void GivenForChar_WhenSet_ThenCharStoredAsString() {
+      char expected = 'a';
+      PlayerPrefs.SetString(TestKey, "someOldValue");
 
-			PowerPrefs.ForChar().Set(TestKey, expected);
+      PowerPrefs.ForChar().Set(TestKey, expected);
 
-			Assert.That(PlayerPrefs.GetString(TestKey, "")[0], Is.EqualTo(expected));
-		}
+      Assert.That(PlayerPrefs.GetString(TestKey, "")[0], Is.EqualTo(expected));
+    }
 
-		[Test]
-		public void GivenForLong_WhenGet_ThenLongRetrieved() {
-			long expected = 123;
-			PlayerPrefs.SetString(TestKey, expected.ToString());
+    [Test]
+    public void GivenForLong_WhenGet_ThenLongRetrieved() {
+      long expected = 123;
+      PlayerPrefs.SetString(TestKey, expected.ToString());
 
-			long actual = PowerPrefs.ForLong().Get(TestKey, -1);
+      long actual = PowerPrefs.ForLong().Get(TestKey, -1);
 
-			Assert.That(actual, Is.EqualTo(expected));
-		}
+      Assert.That(actual, Is.EqualTo(expected));
+    }
 
-		[Test]
-		public void GivenForLong_WhenSet_ThenLongStoredAsString() {
-			long expected = 22;
-			PlayerPrefs.SetString(TestKey, "55");
+    [Test]
+    public void GivenForLong_WhenSet_ThenLongStoredAsString() {
+      long expected = 22;
+      PlayerPrefs.SetString(TestKey, "55");
 
-			PowerPrefs.ForLong().Set(TestKey, expected);
+      PowerPrefs.ForLong().Set(TestKey, expected);
 
-			long actual = long.Parse(PlayerPrefs.GetString(TestKey, "-1"));
-			Assert.That(actual, Is.EqualTo(expected));
-		}
+      long actual = long.Parse(PlayerPrefs.GetString(TestKey, "-1"));
+      Assert.That(actual, Is.EqualTo(expected));
+    }
 
-		[Test]
-		public void GivenForDouble_WhenGet_ThenDoubleRetrieved() {
-			double expected = 123;
-			PlayerPrefs.SetString(TestKey, expected.ToString());
+    [Test]
+    public void GivenForDouble_WhenGet_ThenDoubleRetrieved() {
+      double expected = 123;
+      PlayerPrefs.SetString(TestKey, expected.ToString());
 
-			double actual = PowerPrefs.ForDouble().Get(TestKey, -1);
+      double actual = PowerPrefs.ForDouble().Get(TestKey, -1);
 
-			Assert.That(actual, Is.EqualTo(expected));
-		}
+      Assert.That(actual, Is.EqualTo(expected));
+    }
 
-		[Test]
-		public void GivenForDouble_WhenSet_ThenDoubleStoredAsString() {
-			double expected = 22;
-			PlayerPrefs.SetString(TestKey, "55");
+    [Test]
+    public void GivenForDouble_WhenSet_ThenDoubleStoredAsString() {
+      double expected = 22;
+      PlayerPrefs.SetString(TestKey, "55");
 
-			PowerPrefs.ForDouble().Set(TestKey, expected);
+      PowerPrefs.ForDouble().Set(TestKey, expected);
 
-			double actual = double.Parse(PlayerPrefs.GetString(TestKey, "-1"));
-			Assert.That(actual, Is.EqualTo(expected));
-		}
+      double actual = double.Parse(PlayerPrefs.GetString(TestKey, "-1"));
+      Assert.That(actual, Is.EqualTo(expected));
+    }
 
-		[Test]
-		public void GivenForDateTime_WhenGet_ThenDateTimeRetrieved() {
-			DateTime expected = new DateTime(123456);
-			PlayerPrefs.SetString(TestKey, expected.Ticks.ToString());
+    [Test]
+    public void GivenForDateTime_WhenGet_ThenDateTimeRetrieved() {
+      DateTime expected = new DateTime(123456);
+      PlayerPrefs.SetString(TestKey, expected.Ticks.ToString());
 
-			DateTime actual = PowerPrefs.ForDateTime().Get(TestKey, new DateTime(10));
+      DateTime actual = PowerPrefs.ForDateTime().Get(TestKey, new DateTime(10));
 
-			Assert.That(actual, Is.EqualTo(expected));
-		}
+      Assert.That(actual, Is.EqualTo(expected));
+    }
 
-		[Test]
-		public void GivenForDateTime_WhenSet_ThenDateTimeStoredAsString() {
-			DateTime expected = new DateTime(11111);
-			PlayerPrefs.SetString(TestKey, "55");
+    [Test]
+    public void GivenForDateTime_WhenSet_ThenDateTimeStoredAsString() {
+      DateTime expected = new DateTime(11111);
+      PlayerPrefs.SetString(TestKey, "55");
 
-			PowerPrefs.ForDateTime().Set(TestKey, expected);
+      PowerPrefs.ForDateTime().Set(TestKey, expected);
 
-			DateTime actual = new DateTime(long.Parse(PlayerPrefs.GetString(TestKey, "-1")));
-			Assert.That(actual, Is.EqualTo(expected));
-		}
-	}
+      DateTime actual = new DateTime(long.Parse(PlayerPrefs.GetString(TestKey, "-1")));
+      Assert.That(actual, Is.EqualTo(expected));
+    }
+  }
 }

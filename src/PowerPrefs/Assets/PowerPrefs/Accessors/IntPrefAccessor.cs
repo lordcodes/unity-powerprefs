@@ -16,7 +16,7 @@ namespace AndrewLord.UnityPowerPrefs {
     /// </param>
     /// <returns>The int value stored at the key prefKey or if not present then the built-in default.</returns>
     public int Get(string prefKey, int defaultValue = default(int)) {
-        return PlayerPrefs.GetInt(prefKey, defaultValue);
+      return PlayerPrefs.GetInt(prefKey, defaultValue);
     }
 
     /// <summary>
@@ -26,8 +26,8 @@ namespace AndrewLord.UnityPowerPrefs {
     /// <param name="prefValue">The value to set.</param>
     /// <returns>This accessor.</returns>
     public PrefAccessor<int> Set(string prefKey, int prefValue) {
-        PlayerPrefs.SetInt(prefKey, prefValue);
-        return this;
+      PlayerPrefs.SetInt(prefKey, prefValue);
+      return this;
     }
   }
 }

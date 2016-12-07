@@ -16,7 +16,7 @@ namespace AndrewLord.UnityPowerPrefs {
     /// </param>
     /// <returns>The float value stored at the key prefKey or if not present then the built-in default.</returns>
     public float Get(string prefKey, float defaultValue = default(float)) {
-        return PlayerPrefs.GetFloat(prefKey, defaultValue);
+      return PlayerPrefs.GetFloat(prefKey, defaultValue);
     }
 
     /// <summary>
@@ -26,8 +26,8 @@ namespace AndrewLord.UnityPowerPrefs {
     /// <param name="prefValue">The value to set.</param>
     /// <returns>This accessor.</returns>
     public PrefAccessor<float> Set(string prefKey, float prefValue) {
-        PlayerPrefs.SetFloat(prefKey, prefValue);
-        return this;
+      PlayerPrefs.SetFloat(prefKey, prefValue);
+      return this;
     }
   }
 }

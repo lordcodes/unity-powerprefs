@@ -63,6 +63,5 @@ namespace AndrewLord.UnityPowerPrefs.UnitTests {
 
       Assert.That(PlayerPrefs.GetString(TestKey, ""), Is.EqualTo(expected));
     }
-
   }
 }

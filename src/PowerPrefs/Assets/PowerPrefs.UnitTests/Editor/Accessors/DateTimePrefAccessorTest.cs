@@ -66,6 +66,5 @@ namespace AndrewLord.UnityPowerPrefs.UnitTests {
       DateTime actual = new DateTime(long.Parse(PlayerPrefs.GetString(TestKey, "-1")));
       Assert.That(actual, Is.EqualTo(expected));
     }
-
   }
 }

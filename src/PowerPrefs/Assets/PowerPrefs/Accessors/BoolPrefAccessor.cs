@@ -16,8 +16,8 @@ namespace AndrewLord.UnityPowerPrefs {
     /// </param>
     /// <returns>The bool value stored at the key prefKey or if not present then the built-in default.</returns>
     public bool Get(string prefKey, bool defaultValue = default(bool)) {
-        int prefValue = PlayerPrefs.GetInt(prefKey, boolToInt(defaultValue));
-        return prefValue == 1 ? true : false;
+      int prefValue = PlayerPrefs.GetInt(prefKey, boolToInt(defaultValue));
+      return prefValue == 1 ? true : false;
     }
 
     /// <summary>
@@ -27,8 +27,8 @@ namespace AndrewLord.UnityPowerPrefs {
     /// <param name="prefValue">The value to set.</param>
     /// <returns>This accessor.</returns>
     public PrefAccessor<bool> Set(string prefKey, bool prefValue) {
-        PlayerPrefs.SetInt(prefKey, boolToInt(prefValue));
-        return this;
+      PlayerPrefs.SetInt(prefKey, boolToInt(prefValue));
+      return this;
     }
 
     private int boolToInt(bool prefValue) {

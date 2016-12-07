@@ -65,6 +65,5 @@ namespace AndrewLord.UnityPowerPrefs.UnitTests {
       long actual = long.Parse(PlayerPrefs.GetString(TestKey, "-1"));
       Assert.That(actual, Is.EqualTo(expected));
     }
-
   }
 }
