@@ -3,9 +3,11 @@
 project="PowerPrefs"
 project_path=$(pwd)/src/PowerPrefs
 log_file=$(pwd)/build/unity-mac.log
-export_path=$(pwd)/current-package/$project.unitypackage
-
+export_directory=$(pwd)/current-package
+export_path=$export_directory/$project.unitypackage
 error_code=0
+
+mkdir -p $export_directory
 
 echo "Creating package."
 /Applications/Unity/Unity.app/Contents/MacOS/Unity \
