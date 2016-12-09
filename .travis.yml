@@ -10,7 +10,7 @@ install:
 - ./scripts/install-unity.sh
 
 script:
-- ./scripts/build.sh && ./scripts/run-tests.sh
+- ./scripts/build.sh PowerPrefs && ./scripts/run-tests.sh PowerPrefs
 
 after_success:
-- ./scripts/export-package.sh
+- ./scripts/export-package.sh PowerPrefs
