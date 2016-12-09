@@ -1,7 +1,7 @@
 #! /bin/sh
 
-project="PowerPrefs"
-project_path=$(pwd)/src/PowerPrefs
+project=$1
+project_path=$(pwd)/src/$project
 log_file=$(pwd)/build/unity-mac.log
 export_directory=$(pwd)/current-package
 export_path=$export_directory/$project.unitypackage
@@ -16,7 +16,7 @@ echo "Creating package."
   -silent-crashes \
   -logFile "$log_file" \
   -projectPath "$project_path" \
-  -exportPackage "Assets/PowerPrefs" "$export_path" \
+  -exportPackage "Assets/$project" "$export_path" \
   -quit
 if [ $? = 0 ] ; then
   echo "Created package successfully."

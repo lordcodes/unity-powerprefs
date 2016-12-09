@@ -1,7 +1,7 @@
 #! /bin/sh
 
-project="ci-build"
-project_path=$(pwd)/src/PowerPrefs
+project=$1
+project_path=$(pwd)/src/$project
 log_file=$(pwd)/build/unity-mac.log
 test_results=$(pwd)/reports/unit-test-results.xml
 

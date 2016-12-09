@@ -1,7 +1,7 @@
 #! /bin/sh
 
-project="ci-build"
-project_path=$(pwd)/src/PowerPrefs
+project=$1
+project_path=$(pwd)/src/$project
 log_file=$(pwd)/build/unity-mac.log
 
 error_code=0
