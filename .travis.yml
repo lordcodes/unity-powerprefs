@@ -13,4 +13,4 @@ script:
 - ./scripts/build.sh PowerPrefs && ./scripts/run-tests.sh PowerPrefs
 
 after_success:
-- ./scripts/export-package.sh PowerPrefs
+- ./scripts/export-package.sh AndrewLord PowerPrefs
