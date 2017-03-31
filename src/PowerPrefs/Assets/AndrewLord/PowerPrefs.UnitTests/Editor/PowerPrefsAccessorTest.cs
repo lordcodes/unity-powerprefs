@@ -91,5 +91,15 @@ namespace AndrewLord.UnityPowerPrefs.UnitTests {
 
       Assert.That(PlayerPrefs.HasKey(oldKey), Is.False);
     }
+
+    [Test]
+    public void GivenKey_WhenValue_ThenPowerPrefsValueForProvidedKey() {
+      int expected = 9999;
+      PlayerPrefs.SetInt(TestKey, expected);
+
+      PowerPrefsValue<int> valueAccessor = powerPrefsAccessor.Value(TestKey);
+
+      Assert.That(valueAccessor.Get(), Is.EqualTo(expected));
+    }
   }
 }

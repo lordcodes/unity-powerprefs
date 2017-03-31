@@ -56,6 +56,15 @@ namespace AndrewLord.UnityPowerPrefs {
     }
 
     /// <summary>
+    /// Retrieve a PowerPrefsValue which will allow you to get and set to and from a particular key in PlayerPrefs.
+    /// </summary>
+    /// <param name="prefKey">The PlayerPrefs key.</param>
+    /// <returns>A class to access value for a particular PlayerPrefs key.</returns>
+    public PowerPrefsValue<ValueT> Value(string prefKey) {
+      return new PowerPrefsValue<ValueT>(this, prefKey);
+    }
+
+    /// <summary>
     /// Moves the value stored for one key to be stored for the other key. This can be useful if you want to
     /// rename a PlayerPrefs key, but without existing data stored at the old key from being lost.
     /// </summary>
