@@ -17,19 +17,18 @@
 
   using UnityEngine;
   using NUnit.Framework;
-  using System;
 
-  public class PowerPrefsValueTest {
+  public class PowerPrefsKeyAccessorTest {
 
     private static readonly string TestKey = "someTestKey";
 
-    private PowerPrefsValue<string> valueAccessor;
+    private PowerPrefsKeyAccessor<string> valueAccessor;
 
     [SetUp]
     public void SetUp() {
       PrefAccessor<string> accessor = new StringPrefAccessor();
       PowerPrefsAccessor<string> powerPrefsAccessor = new PowerPrefsAccessor<string>(accessor);
-      valueAccessor = new PowerPrefsValue<string>(powerPrefsAccessor, TestKey);
+      valueAccessor = new PowerPrefsKeyAccessor<string>(powerPrefsAccessor, TestKey);
     }
 
     [TearDown]

@@ -71,6 +71,16 @@ namespace AndrewLord.UnityPowerPrefs.UnitTests {
     }
 
     [Test]
+    public void GivenKey_WhenKeyAccessor_ThenPowerPrefsKeyAccessorForProvidedKey() {
+      int expected = 9999;
+      PlayerPrefs.SetInt(TestKey, expected);
+
+      PowerPrefsKeyAccessor<int> valueAccessor = powerPrefsAccessor.KeyAccessor(TestKey);
+
+      Assert.That(valueAccessor.Get(), Is.EqualTo(expected));
+    }
+
+    [Test]
     public void GivenValueStoredWithOldKey_WhenMigrateKey_ThenValueStoredWithNewKey() {
       int expected = 99;
       string oldKey = "oldKey";
@@ -90,16 +100,6 @@ namespace AndrewLord.UnityPowerPrefs.UnitTests {
       powerPrefsAccessor.MigrateKey(oldKey, TestKey);
 
       Assert.That(PlayerPrefs.HasKey(oldKey), Is.False);
-    }
-
-    [Test]
-    public void GivenKey_WhenValue_ThenPowerPrefsValueForProvidedKey() {
-      int expected = 9999;
-      PlayerPrefs.SetInt(TestKey, expected);
-
-      PowerPrefsValue<int> valueAccessor = powerPrefsAccessor.Value(TestKey);
-
-      Assert.That(valueAccessor.Get(), Is.EqualTo(expected));
     }
   }
 }
