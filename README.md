@@ -15,7 +15,7 @@ Once you have the `unitypackage` file, you can import it into your Unity project
 ## Main Features
 
 - Read and write values to `PlayerPrefs` with support for many extra types, such as `bool`, `char`, `DateTime` and `long`.
-- Values are retrieved and written through an accessor class which is typed. Meaning there are no types in the method names and allowing you to store the accessor class to read and write a key safely, without mentioning the type.
+- Values are retrieved and written through an accessor class which is typed. Meaning there are no types in the method names and allowing you to store the accessor class to read and write a key safely, without mentioning the type again.
 - A method is provided to migrate a value from one key to another, which is useful if you wish to rename one of your keys safely.
 - The classes which read and write values contain instance methods, allowing you to add extra features through extension methods if you wish. Even better, contribute them back to the library for others to use too!
 
@@ -31,7 +31,27 @@ PowerPrefs.ForLong().Set("aLong", 123456);
 PowerPrefs.ForString().Set("aString", "Hello");
 ```
 
-For the `Get` call you can provide a default value to return if the key doesn't exist. If this isn't provided then the default for that type will be used instead. E.g. for `int` this would be 0.
+For the `Get` call you can provide a default value to return if the key doesn't exist. If this isn't provided then the default for that type will be used instead. E.g. for `int` it would be 0.
+
+### Re-use Accessor
+
+You have the option of storing and re-using the accessor class.
+
+```c#
+PowerPrefsAccessor<int> accessor = PowerPrefs.ForInt();
+...
+int myValue = accessor.Get("myKey");
+accessor.Set("meyKey", 5);
+```
+
+An accessor for a particular key is also available: `PowerPrefsValue<T>`.
+
+```c#
+PowerPrefsValue<string> accessor = PowerPrefs.ForString().Value("someKey");
+...
+string myValue = accessor.Get();
+accessor.Set("newValue");
+```
 
 ## Suggestions
 
