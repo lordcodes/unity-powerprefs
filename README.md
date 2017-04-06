@@ -44,13 +44,13 @@ int myValue = accessor.Get("myKey");
 accessor.Set("meyKey", 5);
 ```
 
-An accessor for a particular key is also available: `PowerPrefsValue<T>`.
+An accessor for a particular key is also available: `PowerPrefsKeyAccessor<T>`.
 
 ```c#
-PowerPrefsValue<string> accessor = PowerPrefs.ForString().Value("someKey");
+PowerPrefsKeyAccessor<string> keyAccessor = PowerPrefs.ForString().KeyAccessor("someKey");
 ...
-string myValue = accessor.Get();
-accessor.Set("newValue");
+string myValue = keyAccessor.Get();
+keyAccessor.Set("newValue");
 ```
 
 ## Suggestions

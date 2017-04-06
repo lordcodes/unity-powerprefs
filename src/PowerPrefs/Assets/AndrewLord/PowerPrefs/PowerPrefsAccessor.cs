@@ -60,8 +60,8 @@ namespace AndrewLord.UnityPowerPrefs {
     /// </summary>
     /// <param name="prefKey">The PlayerPrefs key.</param>
     /// <returns>A class to access value for a particular PlayerPrefs key.</returns>
-    public PowerPrefsValue<ValueT> Value(string prefKey) {
-      return new PowerPrefsValue<ValueT>(this, prefKey);
+    public PowerPrefsKeyAccessor<ValueT> KeyAccessor(string prefKey) {
+      return new PowerPrefsKeyAccessor<ValueT>(this, prefKey);
     }
 
     /// <summary>

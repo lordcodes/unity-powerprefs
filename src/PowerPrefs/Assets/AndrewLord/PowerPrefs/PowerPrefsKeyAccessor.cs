@@ -16,19 +16,20 @@
 namespace AndrewLord.UnityPowerPrefs {
 
   /// <summary>
-  /// Get and set values of type ValueT to and from PlayerPrefs.
+  /// Get and set values of type ValueT to and from PlayerPrefs, with the key being stored.
   /// </summary>
-  public class PowerPrefsValue<ValueT> {
+  public class PowerPrefsKeyAccessor<ValueT> {
 
     private PowerPrefsAccessor<ValueT> accessor;
     private string prefKey;
 
     /// <summary>
-    /// Create a PowerPrefsValue which can get and set values of type ValueT to and from PlayerPrefs.
+    /// Create a PowerPrefsKeyAccessor which can get and set values of type ValueT to and from PlayerPrefs, with the 
+    /// key being stored.
     /// </summary>
     /// <param name="accessor">Accessor for type ValueT.</param>
     /// <param name="prefKey">The key to get and set values for.</param>
-    public PowerPrefsValue(PowerPrefsAccessor<ValueT> accessor, string prefKey) {
+    public PowerPrefsKeyAccessor(PowerPrefsAccessor<ValueT> accessor, string prefKey) {
       this.accessor = accessor;
       this.prefKey = prefKey;
     }

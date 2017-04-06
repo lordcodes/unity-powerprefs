@@ -7,7 +7,7 @@ before_install:
 - chmod a+x ./scripts/*.sh
 
 install:
-- ./scripts/install-unity.sh
+- travis_retry ./scripts/install-unity.sh
 
 script:
 - ./scripts/build.sh PowerPrefs && ./scripts/run-tests.sh PowerPrefs
