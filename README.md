@@ -1,6 +1,6 @@
 # PowerPrefs
 
-[![Version](https://img.shields.io/badge/Version-v0.2.0-blue.svg)](https://github.com/andrewlord1990/unity-powerprefs/releases/latest)
+[![Version](https://img.shields.io/badge/Version-v0.3.0-blue.svg)](https://github.com/andrewlord1990/unity-powerprefs/releases/latest)
 [![Build Status](https://travis-ci.org/andrewlord1990/unity-powerprefs.svg?branch=master)](https://travis-ci.org/andrewlord1990/unity-powerprefs)
 [![License](https://img.shields.io/badge/license-Apache%202.0-green.svg) ](https://github.com/andrewlord1990/unity-powerprefs/blob/master/LICENSE)
 
@@ -8,7 +8,7 @@ Unity provides a set of static `PlayerPrefs` methods to store key-value pairs, s
 
 ## Download
 
-You can obtain PowerPrefs by [using this link](https://github.com/andrewlord1990/unity-powerprefs/releases/download/v0.2.0/PowerPrefs.0.2.0.unitypackage).
+You can obtain PowerPrefs by [using this link](https://github.com/andrewlord1990/unity-powerprefs/releases/download/v0.3.0/PowerPrefs.0.3.0.unitypackage).
 
 Once you have the `unitypackage` file, you can import it into your Unity project. If your project is already open then you can simply double-click the downloaded package. Alternatively, go to `Assets -> Import Package -> Custom Package` within the Unity editor.
 
