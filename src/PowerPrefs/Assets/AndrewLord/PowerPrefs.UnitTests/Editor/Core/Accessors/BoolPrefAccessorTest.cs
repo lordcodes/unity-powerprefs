@@ -38,7 +38,7 @@ namespace AndrewLord.UnityPowerPrefs.UnitTests {
     public void GivenTrueValueStored_WhenGet_ThenTrue() {
       PlayerPrefs.SetInt(TestKey, 1);
 
-      bool actual = accessor.Get(TestKey, false);
+      var actual = accessor.Get(TestKey, false);
 
       Assert.That(actual, Is.True);
     }
@@ -47,21 +47,21 @@ namespace AndrewLord.UnityPowerPrefs.UnitTests {
     public void GivenFalseValueStored_WhenGet_ThenFalse() {
       PlayerPrefs.SetInt(TestKey, 0);
 
-      bool actual = accessor.Get(TestKey, true);
+      var actual = accessor.Get(TestKey, true);
 
       Assert.That(actual, Is.False);
     }
 
     [Test]
     public void GivenKeyMissing_WhenGet_ThenDefault() {
-      bool actual = accessor.Get(TestKey, true);
+      var actual = accessor.Get(TestKey, true);
 
       Assert.That(actual, Is.True);
     }
 
     [Test]
     public void GivenNoDefaultProvidedAndKeyMissing_WhenGet_ThenFalse() {
-      bool actual = accessor.Get(TestKey);
+      var actual = accessor.Get(TestKey);
 
       Assert.That(actual, Is.False);
     }

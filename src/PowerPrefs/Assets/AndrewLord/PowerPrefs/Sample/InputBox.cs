@@ -26,7 +26,7 @@ namespace AndrewLord.UnityPowerPrefsSample {
     public InputField inputField;
 
     void Awake() {
-      string inputValue = PowerPrefs.ForString().Get(KeyInput, "Default");
+      var inputValue = PowerPrefs.ForString().Get(KeyInput, "Default");
       inputField.text = inputValue;
     }
 

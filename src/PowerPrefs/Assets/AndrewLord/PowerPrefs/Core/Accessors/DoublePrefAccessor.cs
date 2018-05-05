@@ -31,7 +31,7 @@ namespace AndrewLord.UnityPowerPrefs {
     /// </param>
     /// <returns>The double value stored at the key prefKey or if not present then the built-in default.</returns>
     public double Get(string prefKey, double defaultValue = default(double)) {
-      string storedValue = stringAccessor.Get(prefKey, defaultValue.ToString());
+      var storedValue = stringAccessor.Get(prefKey, defaultValue.ToString());
       return double.Parse(storedValue);
     }
 

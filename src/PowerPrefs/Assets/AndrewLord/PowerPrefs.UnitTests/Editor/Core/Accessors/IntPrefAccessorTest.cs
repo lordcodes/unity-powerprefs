@@ -36,33 +36,33 @@ namespace AndrewLord.UnityPowerPrefs.UnitTests {
 
     [Test]
     public void GivenValueStored_WhenGet_ThenValue() {
-      int expected = 10;
+      var expected = 10;
       PlayerPrefs.SetInt(TestKey, expected);
 
-      int actual = accessor.Get(TestKey, -1);
+      var actual = accessor.Get(TestKey, -1);
 
       Assert.That(actual, Is.EqualTo(expected));
     }
 
     [Test]
     public void GivenKeyMissing_WhenGet_ThenDefault() {
-      int expected = -1;
+      var expected = -1;
 
-      int actual = accessor.Get(TestKey, expected);
+      var actual = accessor.Get(TestKey, expected);
 
       Assert.That(actual, Is.EqualTo(expected));
     }
 
     [Test]
     public void GivenNoDefaultProvidedAndKeyMissing_WhenGet_ThenZero() {
-      int actual = accessor.Get(TestKey);
+      var actual = accessor.Get(TestKey);
 
       Assert.That(actual, Is.EqualTo(0));
     }
 
     [Test]
     public void WhenSet_ThenValueStored() {
-      int expected = 10;
+      var expected = 10;
 
       accessor.Set(TestKey, expected);
 
@@ -71,7 +71,7 @@ namespace AndrewLord.UnityPowerPrefs.UnitTests {
 
     [Test]
     public void GivenValueAlreadyStored_WhenSet_ThenValueOverwritten() {
-      int expected = 20;
+      var expected = 20;
       PlayerPrefs.SetInt(TestKey, -1);
 
       accessor.Set(TestKey, expected);

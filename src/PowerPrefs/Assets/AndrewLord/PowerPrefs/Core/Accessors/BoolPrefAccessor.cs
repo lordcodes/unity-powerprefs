@@ -31,7 +31,7 @@ namespace AndrewLord.UnityPowerPrefs {
     /// </param>
     /// <returns>The bool value stored at the key prefKey or if not present then the built-in default.</returns>
     public bool Get(string prefKey, bool defaultValue = default(bool)) {
-      int prefValue = PlayerPrefs.GetInt(prefKey, boolToInt(defaultValue));
+      var prefValue = PlayerPrefs.GetInt(prefKey, boolToInt(defaultValue));
       return prefValue == 1 ? true : false;
     }
 

@@ -37,33 +37,33 @@ namespace AndrewLord.UnityPowerPrefs.UnitTests {
 
     [Test]
     public void GivenValueStored_WhenGet_ThenValueRetrievedThroughAccessor() {
-      int expected = 25;
+      var expected = 25;
       PlayerPrefs.SetInt(TestKey, expected);
 
-      int actual = powerPrefsAccessor.Get(TestKey, -1);
+      var actual = powerPrefsAccessor.Get(TestKey, -1);
 
       Assert.That(actual, Is.EqualTo(expected));
     }
 
     [Test]
     public void GivenValueNotStored_WhenGet_ThenProvidedDefault() {
-      int expected = -1;
+      var expected = -1;
 
-      int actual = powerPrefsAccessor.Get(TestKey, expected);
+      var actual = powerPrefsAccessor.Get(TestKey, expected);
 
       Assert.That(actual, Is.EqualTo(expected));
     }
 
     [Test]
     public void GivenValueNotStoredAndNoDefault_WhenGet_ThenTypeDefault() {
-      int actual = powerPrefsAccessor.Get(TestKey);
+      var actual = powerPrefsAccessor.Get(TestKey);
 
       Assert.That(actual, Is.EqualTo(0));
     }
 
     [Test]
     public void WhenSet_ThenValueStoredThroughAccessor() {
-      int expected = 99;
+      var expected = 99;
 
       powerPrefsAccessor.Set(TestKey, expected);
 
@@ -72,18 +72,18 @@ namespace AndrewLord.UnityPowerPrefs.UnitTests {
 
     [Test]
     public void GivenKey_WhenKeyAccessor_ThenPowerPrefsKeyAccessorForProvidedKey() {
-      int expected = 9999;
+      var expected = 9999;
       PlayerPrefs.SetInt(TestKey, expected);
 
-      PowerPrefsKeyAccessor<int> valueAccessor = powerPrefsAccessor.KeyAccessor(TestKey);
+      var valueAccessor = powerPrefsAccessor.KeyAccessor(TestKey);
 
       Assert.That(valueAccessor.Get(), Is.EqualTo(expected));
     }
 
     [Test]
     public void GivenValueStoredWithOldKey_WhenMigrateKey_ThenValueStoredWithNewKey() {
-      int expected = 99;
-      string oldKey = "oldKey";
+      var expected = 99;
+      var oldKey = "oldKey";
       PlayerPrefs.SetInt(oldKey, expected);
 
       powerPrefsAccessor.MigrateKey(oldKey, TestKey);
@@ -93,8 +93,8 @@ namespace AndrewLord.UnityPowerPrefs.UnitTests {
 
     [Test]
     public void GivenValueStoredWithOldKey_WhenMigrateKey_ThenOldKeyDeleted() {
-      int expected = 99;
-      string oldKey = "oldKey";
+      var expected = 99;
+      var oldKey = "oldKey";
       PlayerPrefs.SetInt(oldKey, expected);
 
       powerPrefsAccessor.MigrateKey(oldKey, TestKey);

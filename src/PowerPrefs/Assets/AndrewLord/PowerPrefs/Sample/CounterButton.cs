@@ -33,7 +33,7 @@ namespace AndrewLord.UnityPowerPrefsSample {
     }
 
     public void IncrementCounter() {
-      int counter = accessor.Get() + 1;
+      var counter = accessor.Get() + 1;
       accessor.Set(counter);
       CounterChanged(counter);
     }

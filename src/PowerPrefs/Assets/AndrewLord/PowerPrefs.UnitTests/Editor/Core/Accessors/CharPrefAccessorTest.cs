@@ -36,33 +36,33 @@ namespace AndrewLord.UnityPowerPrefs.UnitTests {
 
     [Test]
     public void GivenValueStored_WhenGet_ThenValue() {
-      string expected = "s";
+      var expected = "s";
       PlayerPrefs.SetString(TestKey, expected);
 
-      char actual = accessor.Get(TestKey, 'd');
+      var actual = accessor.Get(TestKey, 'd');
 
       Assert.That(actual, Is.EqualTo(expected[0]));
     }
 
     [Test]
     public void GivenKeyMissing_WhenGet_ThenDefault() {
-      char expected = 'e';
+      var expected = 'e';
 
-      char actual = accessor.Get(TestKey, expected);
+      var actual = accessor.Get(TestKey, expected);
 
       Assert.That(actual, Is.EqualTo(expected));
     }
 
     [Test]
     public void GivenNoDefaultProvidedAndKeyMissing_WhenGet_ThenCharTypeDefault() {
-      char actual = accessor.Get(TestKey);
+      var actual = accessor.Get(TestKey);
 
       Assert.That(actual, Is.EqualTo('\0'));
     }
 
     [Test]
     public void WhenSet_ThenValueStored() {
-      char expected = 'n';
+      var expected = 'n';
 
       accessor.Set(TestKey, expected);
 
@@ -71,7 +71,7 @@ namespace AndrewLord.UnityPowerPrefs.UnitTests {
 
     [Test]
     public void GivenValueAlreadyStored_WhenSet_ThenValueOverwritten() {
-      char expected = 'y';
+      var expected = 'y';
       PlayerPrefs.SetString(TestKey, "p");
 
       accessor.Set(TestKey, expected);

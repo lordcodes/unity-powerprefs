@@ -33,7 +33,7 @@ namespace AndrewLord.UnityPowerPrefs {
     /// </param>
     /// <returns>The DateTime value stored at the key prefKey or if not present then the built-in default.</returns>
     public DateTime Get(string prefKey, DateTime defaultValue = default(DateTime)) {
-      long storedValue = longAccessor.Get(prefKey, defaultValue.Ticks);
+      var storedValue = longAccessor.Get(prefKey, defaultValue.Ticks);
       return new DateTime(storedValue);
     }
 

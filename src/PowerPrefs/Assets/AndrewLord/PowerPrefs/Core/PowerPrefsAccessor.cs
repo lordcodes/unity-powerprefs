@@ -72,7 +72,7 @@ namespace AndrewLord.UnityPowerPrefs {
     /// <param name="newKey">The new key to store the data for.</param>
     public void MigrateKey(string oldKey, string newKey) {
       if (PlayerPrefs.HasKey(oldKey)) {
-        ValueT prefValue = accessor.Get(oldKey, default(ValueT));
+        var prefValue = accessor.Get(oldKey, default(ValueT));
         accessor.Set(newKey, prefValue);
         PlayerPrefs.DeleteKey(oldKey);
       }

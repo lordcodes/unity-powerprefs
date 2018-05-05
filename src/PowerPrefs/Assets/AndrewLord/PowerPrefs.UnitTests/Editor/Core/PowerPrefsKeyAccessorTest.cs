@@ -27,7 +27,7 @@
     [SetUp]
     public void SetUp() {
       PrefAccessor<string> accessor = new StringPrefAccessor();
-      PowerPrefsAccessor<string> powerPrefsAccessor = new PowerPrefsAccessor<string>(accessor);
+      var powerPrefsAccessor = new PowerPrefsAccessor<string>(accessor);
       valueAccessor = new PowerPrefsKeyAccessor<string>(powerPrefsAccessor, TestKey);
     }
 
@@ -38,33 +38,33 @@
 
     [Test]
     public void GivenValueStored_WhenGet_ThenValueRetrievedThroughAccessor() {
-      string expected = "some_stored_string";
+      var expected = "some_stored_string";
       PlayerPrefs.SetString(TestKey, expected);
 
-      string actual = valueAccessor.Get();
+      var actual = valueAccessor.Get();
 
       Assert.That(actual, Is.EqualTo(expected));
     }
 
     [Test]
     public void GivenValueNotStored_WhenGet_ThenProvidedDefault() {
-      string expected = "some_default";
+      var expected = "some_default";
 
-      string actual = valueAccessor.Get(expected);
+      var actual = valueAccessor.Get(expected);
 
       Assert.That(actual, Is.EqualTo(expected));
     }
 
     [Test]
     public void GivenValueNotStoredAndNoDefault_WhenGet_ThenTypeDefault() {
-      string actual = valueAccessor.Get();
+      var actual = valueAccessor.Get();
 
       Assert.That(actual, Is.EqualTo(string.Empty));
     }
 
     [Test]
     public void WhenSet_ThenValueStoredThroughAccessor() {
-      string expected = "some_new_value";
+      var expected = "some_new_value";
 
       valueAccessor.Set(expected);
 

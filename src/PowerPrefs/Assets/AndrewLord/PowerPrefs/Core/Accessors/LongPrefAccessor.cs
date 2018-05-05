@@ -31,7 +31,7 @@ namespace AndrewLord.UnityPowerPrefs {
     /// </param>
     /// <returns>The long value stored at the key prefKey or if not present then the built-in default.</returns>
     public long Get(string prefKey, long defaultValue = default(long)) {
-      string storedValue = stringAccessor.Get(prefKey, defaultValue.ToString());
+      var storedValue = stringAccessor.Get(prefKey, defaultValue.ToString());
       return long.Parse(storedValue);
     }
 
