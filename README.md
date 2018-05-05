@@ -73,7 +73,7 @@ You have the option of storing and re-using the accessor class.
 ```c#
 var accessor = PowerPrefs.ForInt();
 ...
-int myValue = accessor.Get("myKey");
+var myValue = accessor.Get("myKey");
 accessor.Set("meyKey", 5);
 ```
 
@@ -82,7 +82,7 @@ An accessor for a particular key is also available: `PowerPrefsKeyAccessor<T>`.
 ```c#
 var keyAccessor = PowerPrefs.ForString().KeyAccessor("someKey");
 ...
-string myValue = keyAccessor.Get();
+var myValue = keyAccessor.Get();
 keyAccessor.Set("newValue");
 ```
 
