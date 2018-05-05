@@ -4,20 +4,51 @@
 [![Build Status](https://travis-ci.org/andrewlord1990/unity-powerprefs.svg?branch=master)](https://travis-ci.org/andrewlord1990/unity-powerprefs)
 [![License](https://img.shields.io/badge/license-Apache%202.0-green.svg) ](https://github.com/andrewlord1990/unity-powerprefs/blob/master/LICENSE)
 
-Unity provides a set of static `PlayerPrefs` methods to store key-value pairs, similar to `SharedPreferences` on Android. Unfortunately, there are only methods provided for `int`, `float` and `string`. Also, as the methods are static you cannot even add other types through extension methods. PowerPrefs provides access to many more types and also opens up the possibility for even more features as well.
+A **powerful** and **extensible** preferences package for Unity, built on top of `PlayerPrefs`. PowerPrefs provides access to many more types than before, whilst also providing type-safe accessors to your key-value store.
 
-## Download
+&nbsp;
 
-You can obtain PowerPrefs by [using this link](https://github.com/andrewlord1990/unity-powerprefs/releases/download/v0.3.0/PowerPrefs.0.3.0.unitypackage).
+<p align="center">
+    <a href="#key-benefits">Features</a> • <a href="#installation">Installation</a> • <a href="#usage">Usage</a>
+</p>
+
+***
+
+## Key Benefits
+
+#### ▶︎ Many extra types
+
+Read and write values to `PlayerPrefs` with support for many extra types, such as `bool`, `char`, `DateTime` and `long`. There is also the possibility for adding many more in the future.
+
+#### ▶︎ Easy-to-use
+
+You can be up and running without any configuration, simply start getting and setting values.
+
+#### ▶︎ Type-safe accessors
+
+Values are retrieved and written through an accessor class which is typed. This means there are no types in the method names and you can even store the accessor class to read and write a key safely, without mentioning the type again. You can also store an accessor for a particular key to be used across your codebase without re-specifying the key.
+
+#### ▶︎ Migration
+
+A method is provided to migrate a value from one key to another, which is useful if you wish to rename one of your keys safely.
+
+#### ▶︎ Open for extension
+
+The classes which read and write values contain instance methods, allowing you to add extra features through extension methods if you wish. Even better, contribute them back to the library for others to use too!
+
+#### ▶︎ Fully documented
+
+The public API is fully documented, including code documentation.
+
+## Unity Support
+
+It is developed and tested on Unity 2018.1.
+
+## Installation
+
+You can download the latest version of PowerPrefs by [using this link](https://github.com/andrewlord1990/unity-powerprefs/releases/download/v0.3.0/PowerPrefs.0.3.0.unitypackage).
 
 Once you have the `unitypackage` file, you can import it into your Unity project. If your project is already open then you can simply double-click the downloaded package. Alternatively, go to `Assets -> Import Package -> Custom Package` within the Unity editor.
-
-## Main Features
-
-- Read and write values to `PlayerPrefs` with support for many extra types, such as `bool`, `char`, `DateTime` and `long`.
-- Values are retrieved and written through an accessor class which is typed. Meaning there are no types in the method names and allowing you to store the accessor class to read and write a key safely, without mentioning the type again.
-- A method is provided to migrate a value from one key to another, which is useful if you wish to rename one of your keys safely.
-- The classes which read and write values contain instance methods, allowing you to add extra features through extension methods if you wish. Even better, contribute them back to the library for others to use too!
 
 ## Usage
 
@@ -33,12 +64,14 @@ PowerPrefs.ForString().Set("aString", "Hello");
 
 For the `Get` call you can provide a default value to return if the key doesn't exist. If this isn't provided then the default for that type will be used instead. E.g. for `int` it would be 0.
 
+## Advanced Usage
+
 ### Re-use Accessor
 
 You have the option of storing and re-using the accessor class.
 
 ```c#
-PowerPrefsAccessor<int> accessor = PowerPrefs.ForInt();
+var accessor = PowerPrefs.ForInt();
 ...
 int myValue = accessor.Get("myKey");
 accessor.Set("meyKey", 5);
@@ -47,28 +80,22 @@ accessor.Set("meyKey", 5);
 An accessor for a particular key is also available: `PowerPrefsKeyAccessor<T>`.
 
 ```c#
-PowerPrefsKeyAccessor<string> keyAccessor = PowerPrefs.ForString().KeyAccessor("someKey");
+var keyAccessor = PowerPrefs.ForString().KeyAccessor("someKey");
 ...
 string myValue = keyAccessor.Get();
 keyAccessor.Set("newValue");
 ```
 
-## Suggestions
+## Contributing
 
-If there are any features that have been missed that you are interested in then please open an issue. Thanks!
+- [Open an issue](https://github.com/andrewlord1990/unity-powerprefs/issues)
 
-## License
+If you find something that you don't think is working correctly, you have a feature you would like to see in PowerPrefs or just because you want to ask for some help, please [open an issue](https://github.com/andrewlord1990/unity-powerprefs/issues).
 
-    Copyright 2016 Andrew Lord
+- [Open a PR](https://github.com/andrewlord1990/unity-powerprefs/pulls)
 
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
+If you would like to contribute some changes to PowerPrefs, I would greatly appreciate a PR. If you would like to make a major change, please create an issue first to discuss it.
 
-       http://www.apache.org/licenses/LICENSE-2.0
+## Author
 
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
+Andrew Lord [@andrewlord1990](https://twitter.com/@andrewlord1990)
