@@ -1,3 +1,10 @@
+# Output
 build/
 reports/
 current-package/
+
+# Editors / IDEs
+.vs/*
+**/*/.vs/*
+.vscode
+**/*/.vscode

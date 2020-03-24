@@ -1,20 +1,30 @@
-# PowerPrefs
+<p align="center">
+    <img src="art/logo.png" width="500" max-width="90%" alt="PowerPrefs" />
+</p>
 
-[![Version](https://img.shields.io/badge/Version-v0.4.0-blue.svg)](https://github.com/andrewlord1990/unity-powerprefs/releases/latest)
-[![Build Status](https://travis-ci.org/andrewlord1990/unity-powerprefs.svg?branch=master)](https://travis-ci.org/andrewlord1990/unity-powerprefs)
-[![License](https://img.shields.io/badge/license-Apache%202.0-green.svg) ](https://github.com/andrewlord1990/unity-powerprefs/blob/master/LICENSE)
+<p align="center">
+    <a href="https://github.com/lordcodes/unity-powerprefs/releases/latest">
+        <img src="https://img.shields.io/github/release/lordcodes/unity-powerprefs.svg?style=flat" alt="Latest release" />
+    </a>
+    <img src="https://img.shields.io/badge/platform-unity-blueviolet.svg?style=flat" alt="Twitter: @lordcodes" />
+    <a href="https://twitter.com/lordcodes">
+        <img src="https://img.shields.io/badge/twitter-@lordcodes-00acee.svg?style=flat" alt="Twitter: @lordcodes" />
+    </a>
+</p>
+
+---
 
 A **powerful** and **extensible** preferences package for Unity, built on top of `PlayerPrefs`. PowerPrefs provides access to many more types than before, whilst also providing type-safe accessors to your key-value store.
 
 &nbsp;
 
 <p align="center">
-    <a href="#key-benefits">Features</a> • <a href="#installation">Installation</a> • <a href="#usage">Usage</a>
+    <a href="#features">Features</a> • <a href="#install">Install</a> • <a href="#usage">Usage</a>
 </p>
 
 ***
 
-## Key Benefits
+## Features
 
 #### ▶︎ Many extra types
 
@@ -40,13 +50,9 @@ The classes which read and write values contain instance methods, allowing you t
 
 The public API is fully documented, including code documentation.
 
-## Unity Support
+## Install
 
-It is developed and tested on Unity 2018.1.
-
-## Installation
-
-You can download the latest version of PowerPrefs by [using this link](https://github.com/andrewlord1990/unity-powerprefs/releases/download/v0.4.0/PowerPrefs.0.4.0.unitypackage).
+You can download the latest version of PowerPrefs [from releases](https://github.com/lordcodes/unity-powerprefs/releases/latest).
 
 Once you have the `unitypackage` file, you can import it into your Unity project. If your project is already open then you can simply double-click the downloaded package. Alternatively, go to `Assets -> Import Package -> Custom Package` within the Unity editor.
 
@@ -86,16 +92,8 @@ var myValue = keyAccessor.Get();
 keyAccessor.Set("newValue");
 ```
 
-## Contributing
+## Contributing or Help
 
-- [Open an issue](https://github.com/andrewlord1990/unity-powerprefs/issues)
+If you notice any bugs or have a new feature to suggest, please check out the [contributing guide](https://github.com/lordcodes/unity-powerprefs/blob/master/CONTRIBUTING.md). If you want to make changes, please make sure to discuss anything big before putting in the effort of creating the PR.
 
-If you find something that you don't think is working correctly, you have a feature you would like to see in PowerPrefs or just because you want to ask for some help, please [open an issue](https://github.com/andrewlord1990/unity-powerprefs/issues).
-
-- [Open a PR](https://github.com/andrewlord1990/unity-powerprefs/pulls)
-
-If you would like to contribute some changes to PowerPrefs, I would greatly appreciate a PR. If you would like to make a major change, please create an issue first to discuss it.
-
-## Author
-
-Andrew Lord [@andrewlord1990](https://twitter.com/@andrewlord1990)
+To reach out, please contact [@lordcodes on Twitter](https://twitter.com/lordcodes).
