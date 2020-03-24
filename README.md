@@ -12,8 +12,6 @@
     </a>
 </p>
 
----
-
 A **powerful** and **extensible** preferences package for Unity, built on top of `PlayerPrefs`. PowerPrefs provides access to many more types than before, whilst also providing type-safe accessors to your key-value store.
 
 &nbsp;
