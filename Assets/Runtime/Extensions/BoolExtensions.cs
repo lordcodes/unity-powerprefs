@@ -3,7 +3,7 @@
 // Copyright (C) 2016 Andrew Lord
 // Apache License, Version 2.0, see LICENSE file for details
 //
-namespace AndrewLord.UnityPowerPrefs.Extensions
+namespace LordCodes.PowerPrefs.Extensions
 {
     internal static class BoolExtensions
     {

@@ -3,9 +3,9 @@
 // Copyright (C) 2016 Andrew Lord
 // Apache License, Version 2.0, see LICENSE file for details
 //
-namespace AndrewLord.UnityPowerPrefs
+namespace LordCodes.PowerPrefs
 {
-    using AndrewLord.UnityPowerPrefs.Accessors;
+    using LordCodes.PowerPrefs.Accessors;
     using UnityEngine;
 
     /// <summary>

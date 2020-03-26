@@ -3,7 +3,7 @@
 // Copyright (C) 2016 Andrew Lord
 // Apache License, Version 2.0, see LICENSE file for details
 //
-namespace AndrewLord.UnityPowerPrefs
+namespace LordCodes.PowerPrefs
 {
     /// <summary>
     /// Get and set values of type ValueT to and from PlayerPrefs, with the key being stored.
