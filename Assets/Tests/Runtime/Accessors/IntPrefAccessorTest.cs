@@ -3,22 +3,21 @@
 // Copyright (C) 2016 Andrew Lord
 // Apache License, Version 2.0, see LICENSE file for details
 //
-namespace AndrewLord.UnityPowerPrefs.Accessors.UnitTests
+namespace AndrewLord.UnityPowerPrefs.Accessors
 {
-
     using UnityEngine;
     using NUnit.Framework;
 
-    public class CharPrefAccessorTest
+    public class IntPrefAccessorTest
     {
         private static readonly string TestKey = "someTestKey";
 
-        private CharPrefAccessor accessor;
+        private IntPrefAccessor accessor;
 
         [SetUp]
         public void SetUp()
         {
-            accessor = new CharPrefAccessor();
+            accessor = new IntPrefAccessor();
         }
 
         [TearDown]
@@ -30,18 +29,18 @@ namespace AndrewLord.UnityPowerPrefs.Accessors.UnitTests
         [Test]
         public void GivenValueStored_WhenGet_ThenValue()
         {
-            var expected = "s";
-            PlayerPrefs.SetString(TestKey, expected);
+            var expected = 10;
+            PlayerPrefs.SetInt(TestKey, expected);
 
-            var actual = accessor.Get(TestKey, 'd');
+            var actual = accessor.Get(TestKey, -1);
 
-            Assert.That(actual, Is.EqualTo(expected[0]));
+            Assert.That(actual, Is.EqualTo(expected));
         }
 
         [Test]
         public void GivenKeyMissing_WhenGet_ThenDefault()
         {
-            var expected = 'e';
+            var expected = -1;
 
             var actual = accessor.Get(TestKey, expected);
 
@@ -49,32 +48,32 @@ namespace AndrewLord.UnityPowerPrefs.Accessors.UnitTests
         }
 
         [Test]
-        public void GivenNoDefaultProvidedAndKeyMissing_WhenGet_ThenCharTypeDefault()
+        public void GivenNoDefaultProvidedAndKeyMissing_WhenGet_ThenZero()
         {
             var actual = accessor.Get(TestKey);
 
-            Assert.That(actual, Is.EqualTo('\0'));
+            Assert.That(actual, Is.EqualTo(0));
         }
 
         [Test]
         public void WhenSet_ThenValueStored()
         {
-            var expected = 'n';
+            var expected = 10;
 
             accessor.Set(TestKey, expected);
 
-            Assert.That(PlayerPrefs.GetString(TestKey, "i")[0], Is.EqualTo(expected));
+            Assert.That(PlayerPrefs.GetInt(TestKey, 100), Is.EqualTo(expected));
         }
 
         [Test]
         public void GivenValueAlreadyStored_WhenSet_ThenValueOverwritten()
         {
-            var expected = 'y';
-            PlayerPrefs.SetString(TestKey, "p");
+            var expected = 20;
+            PlayerPrefs.SetInt(TestKey, -1);
 
             accessor.Set(TestKey, expected);
 
-            Assert.That(PlayerPrefs.GetString(TestKey, "t")[0], Is.EqualTo(expected));
+            Assert.That(PlayerPrefs.GetInt(TestKey, 100), Is.EqualTo(expected));
         }
     }
 }

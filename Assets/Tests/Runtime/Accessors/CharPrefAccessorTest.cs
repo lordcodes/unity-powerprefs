@@ -3,23 +3,22 @@
 // Copyright (C) 2016 Andrew Lord
 // Apache License, Version 2.0, see LICENSE file for details
 //
-namespace AndrewLord.UnityPowerPrefs.Accessors.UnitTests
+namespace AndrewLord.UnityPowerPrefs.Accessors
 {
 
-    using NUnit.Framework;
-    using System;
     using UnityEngine;
+    using NUnit.Framework;
 
-    public class DateTimePrefAccessorTest
+    public class CharPrefAccessorTest
     {
         private static readonly string TestKey = "someTestKey";
 
-        private DateTimePrefAccessor accessor;
+        private CharPrefAccessor accessor;
 
         [SetUp]
         public void SetUp()
         {
-            accessor = new DateTimePrefAccessor();
+            accessor = new CharPrefAccessor();
         }
 
         [TearDown]
@@ -31,18 +30,18 @@ namespace AndrewLord.UnityPowerPrefs.Accessors.UnitTests
         [Test]
         public void GivenValueStored_WhenGet_ThenValue()
         {
-            var expected = new DateTime(1000);
-            PlayerPrefs.SetString(TestKey, expected.Ticks.ToString());
+            var expected = "s";
+            PlayerPrefs.SetString(TestKey, expected);
 
-            var actual = accessor.Get(TestKey, new DateTime(2000));
+            var actual = accessor.Get(TestKey, 'd');
 
-            Assert.That(actual, Is.EqualTo(expected));
+            Assert.That(actual, Is.EqualTo(expected[0]));
         }
 
         [Test]
         public void GivenKeyMissing_WhenGet_ThenDefault()
         {
-            var expected = new DateTime(3000);
+            var expected = 'e';
 
             var actual = accessor.Get(TestKey, expected);
 
@@ -54,30 +53,28 @@ namespace AndrewLord.UnityPowerPrefs.Accessors.UnitTests
         {
             var actual = accessor.Get(TestKey);
 
-            Assert.That(actual, Is.EqualTo(default(DateTime)));
+            Assert.That(actual, Is.EqualTo('\0'));
         }
 
         [Test]
         public void WhenSet_ThenValueStored()
         {
-            var expected = new DateTime(15000);
+            var expected = 'n';
 
             accessor.Set(TestKey, expected);
 
-            var actual = new DateTime(long.Parse(PlayerPrefs.GetString(TestKey, "1000")));
-            Assert.That(actual, Is.EqualTo(expected));
+            Assert.That(PlayerPrefs.GetString(TestKey, "i")[0], Is.EqualTo(expected));
         }
 
         [Test]
         public void GivenValueAlreadyStored_WhenSet_ThenValueOverwritten()
         {
-            var expected = new DateTime(23000);
-            PlayerPrefs.SetString(TestKey, "121");
+            var expected = 'y';
+            PlayerPrefs.SetString(TestKey, "p");
 
             accessor.Set(TestKey, expected);
 
-            var actual = new DateTime(long.Parse(PlayerPrefs.GetString(TestKey, "-1")));
-            Assert.That(actual, Is.EqualTo(expected));
+            Assert.That(PlayerPrefs.GetString(TestKey, "t")[0], Is.EqualTo(expected));
         }
     }
 }

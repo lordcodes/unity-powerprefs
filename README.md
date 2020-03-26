@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="art/logo.png" width="500" max-width="90%" alt="PowerPrefs" />
+    <img src="Art/logo.png" width="500" max-width="90%" alt="PowerPrefs" />
 </p>
 
 <p align="center">

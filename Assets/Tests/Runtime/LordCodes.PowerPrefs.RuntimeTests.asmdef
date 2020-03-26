@@ -1,0 +1,9 @@
+﻿{
+	"name": "LordCodes.PowerPrefs.Tests.Runtime",
+	"references": [
+    "LordCodes.PowerPrefs"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}
