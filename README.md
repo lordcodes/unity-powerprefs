@@ -50,9 +50,20 @@ The public API is fully documented, including code documentation.
 
 ## Install
 
-You can download the latest version of PowerPrefs [from releases](https://github.com/lordcodes/unity-powerprefs/releases/latest).
+PowerPrefs can be installed using the Unity Package Manager.
 
-Once you have the `unitypackage` file, you can import it into your Unity project. If your project is already open then you can simply double-click the downloaded package. Alternatively, go to `Assets -> Import Package -> Custom Package` within the Unity editor.
+1. Open the Package Manager within Unity.
+2. Select to add via Git URL.
+3. Enter the Git URL.
+4. The package can now be used within the Unity project.
+
+The Git URL for the release branch:
+`https://github.com/lordcodes/unity-powerprefs.git#upm`
+
+The Git URL for a specific version:
+`https://github.com/lordcodes/unity-powerprefs.git#v{VERSION}`
+
+If a previous version of PowerPrefs had been imported using a `unitypackage`, make sure to remove it from the project before importing via Unity Package Manager.
 
 ## Usage
 
